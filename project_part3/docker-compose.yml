@@ -1,1 +1,27 @@
 # Your Solution
+
+services:
+
+  book_catalog:
+    image: book_catalog
+    build: 
+      context: ./book_catalog
+      dockerfile: Dockerfile
+    container_name: book_catalog
+    ports:
+     - "3000:3000"
+    environment:
+      - PORT=3000
+      - DATABASE_URL=postgresql://lakshmi_task7_user:NV61iVgD8Bm3BERlIMl04nzZWa6olX7D@dpg-crm0b808fa8c739v6d00-a.oregon-postgres.render.com/lakshmi_task7
+
+  inventory_management:
+    image: inventory_management
+    build: 
+      context: ./inventory_management
+      dockerfile: Dockerfile
+    container_name: inventory_management
+    ports:
+     - "5000:5000"
+    environment:
+      - PORT=5000
+      - DATABASE_URL=postgresql://lakshmi_task7_user:NV61iVgD8Bm3BERlIMl04nzZWa6olX7D@dpg-crm0b808fa8c739v6d00-a.oregon-postgres.render.com/lakshmi_task7
